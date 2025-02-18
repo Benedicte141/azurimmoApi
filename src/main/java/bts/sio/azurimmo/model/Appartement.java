@@ -26,8 +26,8 @@ public class Appartement {
 	@Column(name = "surface")
 	private float surface;
 
-	@Column(name = "nombrePiecesPrincipales")
-	private int nombrePiecesPrincipales;
+	@Column(name = "nbrePieces")
+	private int nbrePieces;
 
 	@Column(name = "description")
 	private String description;
@@ -60,14 +60,6 @@ public class Appartement {
 		this.surface = surface;
 	}
 
-	public int getNombrePiecesPrincipales() {
-		return nombrePiecesPrincipales;
-	}
-
-	public void setNombrePiecesPrincipales(int nombrePiecesPrincipales) {
-		this.nombrePiecesPrincipales = nombrePiecesPrincipales;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -82,6 +74,14 @@ public class Appartement {
 
 	public void setBatiment(Batiment batiment) {
 		this.batiment = batiment;
+	}
+
+	public int getNbrePieces() {
+		return nbrePieces;
+	}
+
+	public void setNbrePieces(int nbrePieces) {
+		this.nbrePieces = nbrePieces;
 	}
 
 }

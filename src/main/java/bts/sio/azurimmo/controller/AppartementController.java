@@ -1,6 +1,7 @@
 package bts.sio.azurimmo.controller;
 
 import bts.sio.azurimmo.model.Appartement;
+import bts.sio.azurimmo.model.Batiment;
 import bts.sio.azurimmo.service.AppartementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

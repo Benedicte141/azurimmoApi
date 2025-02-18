@@ -19,7 +19,7 @@ public class BatimentController {
 	public Batiment createBatiment(@RequestBody Batiment batiment) {
 		return batimentService.saveBatiment(batiment);
 	}
-
+	
 	@GetMapping("/")
 	public List<Batiment> findAll() {
 		return batimentService.findAll();

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bts.sio.azurimmo.model.Appartement;
+import bts.sio.azurimmo.model.Batiment;
 import bts.sio.azurimmo.repository.AppartementRepository;
 import lombok.Data;
 
@@ -16,9 +17,13 @@ public class AppartementService {
 	private AppartementRepository appartementRepository;
 
 	public Appartement saveAppartement(Appartement appartement) {
+		if (appartement.getId() == 0) {
+            appartement.setId(null);
+        }
 		Appartement savedAppartement = appartementRepository.save(appartement);
 		return savedAppartement;
 	}
+	
 	
 	public List<Appartement> getAppartementsParBatiment(long id) {
 		return appartementRepository.findByBatiment_Id(id);

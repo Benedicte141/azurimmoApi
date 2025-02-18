@@ -12,12 +12,16 @@ import lombok.Data;
 @Data
 @Service
 public class BatimentService {
+	
 	@Autowired
 	private BatimentRepository batimentRepository;
 
 	public Batiment saveBatiment(Batiment batiment) {
+		if (batiment.getId() == 0) {
+            batiment.setId(null);
+        }
 		Batiment savedBatiment = batimentRepository.save(batiment);
-		return savedBatiment;
+			return savedBatiment;
 	}
 	
 	public List<Batiment> findAll() {
