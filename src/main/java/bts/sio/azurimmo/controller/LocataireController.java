@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:3001")
 @RestController
 @RequestMapping("/api/locataires")
 public class LocataireController {
@@ -23,7 +24,7 @@ public class LocataireController {
 	public List<Locataire> findAll() {
 		return locataireService.findAll();
 	}
-
 	
+		
 	
 }

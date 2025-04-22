@@ -16,18 +16,18 @@ public class BatimentService {
 	@Autowired
 	private BatimentRepository batimentRepository;
 
-	public Batiment saveBatiment(Batiment batiment) {
-		if (batiment.getId() == 0) {
-            batiment.setId(null);
-        }
-		Batiment savedBatiment = batimentRepository.save(batiment);
-			return savedBatiment;
-	}
-	
-	public List<Batiment> findAll() {
+	// Renommer la méthode ici
+	public List<Batiment> getAllBatiments() {
 		return batimentRepository.findAll();
 	}
-	
+	public Batiment saveBatiment(Batiment batiment) {
+		if (batiment.getId() == null || batiment.getId() == 0) {
+            batiment.setId(null);
+        }
+		return batimentRepository.save(batiment); // Sauvegarde dans la base de données
+    }
+
+	// Méthode pour récupérer un bâtiment par son ID
 	public Optional<Batiment> findById(long id) {
 		return batimentRepository.findById(id);
 	}
