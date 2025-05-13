@@ -24,6 +24,5 @@ public class EntrepriseController {
 	public List<Entreprise> findAll() {
 		return entrepriseService.findAll();
 	}
-	
 
 }

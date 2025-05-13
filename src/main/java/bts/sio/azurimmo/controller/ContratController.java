@@ -39,6 +39,4 @@ public class ContratController {
 		return contratService.getContratsParLocataire(locataireId);
 	}
 
-
-
 }

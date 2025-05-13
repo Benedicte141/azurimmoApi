@@ -25,6 +25,4 @@ public class LocataireController {
 		return locataireService.findAll();
 	}
 	
-		
-	
 }
