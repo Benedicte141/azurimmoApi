@@ -28,7 +28,7 @@ public class BatimentController {
 	        return new ResponseEntity<>(newBatiment, HttpStatus.CREATED);
 	    }
 		
-		// Récupérer tous les bâtiments avec une nouvelle URL
+		// Récupérer tous les bâtiments 
 		@GetMapping("/")
 		public List<Batiment> getAllBatiments() {
 		    return batimentService.getAllBatiments();
