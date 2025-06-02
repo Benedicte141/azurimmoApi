@@ -1,12 +1,12 @@
 package bts.sio.azurimmo.controller;
 
 import bts.sio.azurimmo.model.Appartement;
-import bts.sio.azurimmo.model.Batiment;
 import bts.sio.azurimmo.service.AppartementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -24,6 +24,11 @@ public class AppartementController {
 	@GetMapping("/")
 	public List<Appartement> findAll() {
 		return appartementService.findAll();
+	}
+	
+	@GetMapping("/appartements/{id}")
+	public Optional<Appartement> getAppartementById(@PathVariable long id) {
+	    return appartementService.findById(id);
 	}
 
 	@GetMapping("/appartement/batiment/{id}")
@@ -50,6 +55,12 @@ public class AppartementController {
 	public ResponseEntity<Void> deleteAppartement(@PathVariable Long id) {
 	    appartementService.deleteAppartement(id);
 	    return ResponseEntity.noContent().build();
+	}
+	
+	@PutMapping("/appartements/{id}")
+	public Appartement updateAppartement(@PathVariable Long id, @RequestBody Appartement updatedAppartement) {
+	    updatedAppartement.setId(id);
+	    return appartementService.saveAppartement(updatedAppartement);
 	}
 
 }

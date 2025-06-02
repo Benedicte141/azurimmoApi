@@ -9,6 +9,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -39,10 +44,13 @@ public class Contrat {
 	
 	@ManyToOne
 	@JoinColumn(name = "locataire_id")
+	@JsonManagedReference
 	private Locataire locataire;
 	
 	@ManyToOne
 	@JoinColumn(name = "appartement_id")
+	//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+	@JsonManagedReference
 	private Appartement appartement ;
 
 	public Long getId() {

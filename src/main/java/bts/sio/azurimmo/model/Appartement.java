@@ -1,6 +1,7 @@
 package bts.sio.azurimmo.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
@@ -14,6 +15,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
+
 @Entity
 @Table(name = "appartement")
 
@@ -37,9 +39,9 @@ public class Appartement {
 
 	@ManyToOne
 	@JoinColumn(name = "batiment_id")
+//	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+	@JsonIgnoreProperties("appartements") 
 	private Batiment batiment;
-	
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
 	public Long getId() {
 		return id;

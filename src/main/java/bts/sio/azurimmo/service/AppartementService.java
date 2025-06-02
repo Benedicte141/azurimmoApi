@@ -1,14 +1,11 @@
 package bts.sio.azurimmo.service;
 
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import bts.sio.azurimmo.model.Appartement;
-import bts.sio.azurimmo.model.Batiment;
 import bts.sio.azurimmo.repository.AppartementRepository;
 import lombok.Data;
 
@@ -51,5 +48,10 @@ public class AppartementService {
 	public void deleteAppartement(Long id) {
 	    appartementRepository.deleteById(id);
 	}
+	
+	// Méthode pour récupérer un appartement par son ID
+		public Optional<Appartement> findById(long id) {
+			return appartementRepository.findById(id);
+		}
 
 }
