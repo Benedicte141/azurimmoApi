@@ -3,6 +3,7 @@ package bts.sio.azurimmo.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -38,7 +39,8 @@ public class Locataire {
 	private String lieuNaissance;
 	
 	@OneToMany(mappedBy ="locataire")
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+	//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+	@JsonBackReference
 	private List<Contrat> contrats;
 	
 	
