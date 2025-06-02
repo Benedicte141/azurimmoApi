@@ -38,5 +38,7 @@ public class ContratController {
 	public List<Contrat> getContratsParLocataire(@PathVariable long locataireId) {
 		return contratService.getContratsParLocataire(locataireId);
 	}
+	
+	
 
 }

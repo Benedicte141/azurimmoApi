@@ -37,6 +37,8 @@ public class ContratService {
 	public List<Contrat> findByNom(String nom){
 		return contratRepository.findByLocataire_Nom(nom);
 	}
-
+	public boolean hasContrat(Long appartementId) {
+        return contratRepository.existsByAppartementId(appartementId);
+    }
 
 }

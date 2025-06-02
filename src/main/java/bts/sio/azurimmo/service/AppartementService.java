@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import bts.sio.azurimmo.model.Appartement;
 import bts.sio.azurimmo.repository.AppartementRepository;
+import bts.sio.azurimmo.repository.ContratRepository;
 import lombok.Data;
 
 @Data
@@ -15,6 +16,8 @@ public class AppartementService {
 
 	@Autowired
 	private AppartementRepository appartementRepository;
+	@Autowired
+	private ContratRepository contratRepository;
 
 	public Appartement saveAppartement(Appartement appartement) {
 		if (appartement.getId() == 0) {
@@ -50,8 +53,14 @@ public class AppartementService {
 	}
 	
 	// Méthode pour récupérer un appartement par son ID
-		public Optional<Appartement> findById(long id) {
-			return appartementRepository.findById(id);
-		}
+	public Optional<Appartement> findById(long id) {
+		return appartementRepository.findById(id);
+	}
+	
+
+	public boolean hasContrat(Long appartementId) {
+	    return contratRepository.existsByAppartementId(appartementId);
+	}
+
 
 }

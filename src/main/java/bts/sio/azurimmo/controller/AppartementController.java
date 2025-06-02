@@ -2,6 +2,8 @@ package bts.sio.azurimmo.controller;
 
 import bts.sio.azurimmo.model.Appartement;
 import bts.sio.azurimmo.service.AppartementService;
+import bts.sio.azurimmo.service.ContratService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,9 @@ public class AppartementController {
 
 	@Autowired
 	private AppartementService appartementService;
+	
+	@Autowired
+	private ContratService contratService;
 
 	@PostMapping("/")
 	public Appartement createAppartement(@RequestBody Appartement appartement) {
@@ -61,6 +66,10 @@ public class AppartementController {
 	public Appartement updateAppartement(@PathVariable Long id, @RequestBody Appartement updatedAppartement) {
 	    updatedAppartement.setId(id);
 	    return appartementService.saveAppartement(updatedAppartement);
+	}
+	@GetMapping("/appartements/{id}/hasContrat")
+	public boolean hasContrat(@PathVariable Long id) {
+	    return contratService.hasContrat(id);
 	}
 
 }

@@ -15,5 +15,6 @@ public interface ContratRepository extends JpaRepository<Contrat, Long>{
 	List<Contrat> findByLocataire_Nom(String nom);
 
 	List<Contrat> findByLocataire_Id(long id);
-
+	
+	boolean existsByAppartementId(Long appartementId);
 }
